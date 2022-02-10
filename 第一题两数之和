@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+
+#define Maxsize 10000;
+int* twoSum(int* nums, int numsSize, int target, int* returnSize)
+{
+//    int nums[Maxsize];
+//    int numsSize,target;
+    int m,n;
+    *returnSize=2;
+    returnSize=(int*)malloc(2*sizeof(int));
+    for(m=0;m<numsSize;m++)
+	{
+    	for(n=m+1;n<numsSize;n++)
+    	{
+//			mid=nums[m]+nums[n];
+			if(nums[m]+nums[n]==target){
+			
+				returnSize[0]=m; 
+				returnSize[1]=n;
+			}
+		}
+
+	}
+//	returnSize=&returnSize[0];
+//	printf("in:[%d,%d]\n",returnSize[0],returnSize[1]);
+    return returnSize;
+
+}
+
+int main(){
+	int nums[]={2,7,11,15};
+	int target=9;
+	int* p;
+	p=&nums[0];
+	*p=4;
+//	returnsize=(int*)malloc(2*sizeof(int));
+//	int*p=&nums[0];
+//	int* t=&returnsize[0];
+	p=twoSum(nums,4,target,p);
+	printf("[%d,%d]\n",p[0],p[1]);
+//	free(nums);
+}
